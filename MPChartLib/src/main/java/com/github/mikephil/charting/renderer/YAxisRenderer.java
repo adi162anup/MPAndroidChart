@@ -158,6 +158,10 @@ public class YAxisRenderer extends AxisRenderer {
             int clipRestoreCount = c.save();
             c.clipRect(getGridClippingRect());
 
+//            if(mYAxis.isShowSpecificGridPositions()){
+//
+//            }
+
             float[] positions = getTransformedPositions();
 
             mGridPaint.setColor(mYAxis.getGridColor());
@@ -219,12 +223,12 @@ public class YAxisRenderer extends AxisRenderer {
         if(mGetTransformedPositionsBuffer.length != mYAxis.mEntryCount * 2){
             mGetTransformedPositionsBuffer = new float[mYAxis.mEntryCount * 2];
         }
-        float[] positions = mGetTransformedPositionsBuffer;
+        float[] positions = {0,5,10,25,50,100};
 
-        for (int i = 0; i < positions.length; i += 2) {
-            // only fill y values, x values are not needed for y-labels
-            positions[i + 1] = mYAxis.mEntries[i / 2];
-        }
+//        for (int i = 0; i < positions.length; i += 2) {
+//            // only fill y values, x values are not needed for y-labels
+//            positions[i + 1] = mYAxis.mEntries[i / 2];
+//        }
 
         mTrans.pointValuesToPixel(positions);
         return positions;

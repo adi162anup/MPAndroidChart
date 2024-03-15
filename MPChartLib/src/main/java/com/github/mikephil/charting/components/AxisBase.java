@@ -16,6 +16,8 @@ import java.util.List;
  * Base-class of all axes (previously called labels).
  *
  * @author Philipp Jahoda
+ *
+ * Modified by Adithya Anup
  */
 public abstract class AxisBase extends ComponentBase {
 
@@ -151,6 +153,11 @@ public abstract class AxisBase extends ComponentBase {
      * if true, then labels are displayed using specificLabelPositions instead of computed ones
      */
     private boolean showSpecificLabelPositions = false;
+
+    /**
+     * if true, then grid lines are displayed using specificLabelPositions instead of computed ones
+     */
+    private boolean showSpecificGridPositions = false;
 
     /**
      * specify to which values labels must be displayed. has no effect if not used showSpecificLabelPositions set to true
@@ -783,9 +790,22 @@ public abstract class AxisBase extends ComponentBase {
         this.showSpecificLabelPositions = showSpecificLabelPositions;
     }
 
+    /**
+     * if set to true, grid lines will be displayed at the specific positions passed in via setSpecificLabelPositions
+     */
+    public void setShowSpecificGridPositions(boolean showSpecificGridPositions)
+    {
+        this.showSpecificGridPositions = showSpecificGridPositions;
+    }
+
     public boolean isShowSpecificLabelPositions()
     {
         return showSpecificLabelPositions;
+    }
+
+    public boolean isShowSpecificGridPositions()
+    {
+        return showSpecificGridPositions;
     }
 
     public void setSpecificLabelPositions(float[] specificLabelPositions)
